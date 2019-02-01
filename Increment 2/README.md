@@ -64,3 +64,50 @@ cd fabric-samples
 
 # Download this repository
 
+unzip Log-Management-System-Iteration-1
+
+cd LMS-Increment-2-Iteration-1
+
+# Start the network
+
+COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-cli.yaml -f docker-compose-couch.yaml -f docker-compose-cas.yaml up -d
+
+chmod +x scripts/script.sh
+
+chmod +x scripts/utils.sh
+
+docker exec cli scripts/script.sh oslogchannel 3 golang 10 false
+
+# Create a business card and connect Composer to the network
+
+cd log-network
+
+composer card create -p connection.json -u PeerAdmin -c Admin@org1.log-network-cert.pem -k *_sk -r PeerAdmin -r ChannelAdmin -f PeerAdmin@log-network.card
+
+composer card import -f PeerAdmin@log-network.card --card PeerAdmin@log-network
+
+composer network install --card PeerAdmin@log-network --archiveFile log-network@0.0.1.bna
+
+// composer network install --card PeerAdmin@log-network --archiveFile log-network@0.0.1.bna -o npmrcFile=/home/andrew/.npm/npmConfig.txt
+
+composer network start --networkName log-network --networkVersion 0.0.1 -A admin -S adminpw -c PeerAdmin@log-network
+
+composer card import -f admin@log-network.card
+
+# Test the network connection
+
+composer network ping -c admin@log-network
+
+# Generate a REST server
+
+composer-rest-server
+
+- Enter the name of the business network card to use: admin@log-network
+- Specify if you want namespaces in the generated REST API: Never
+- Specify if you want to use an API key to secure the REST API: No
+- Specify if you want to enable authentication for the REST API using Passport: No
+- Specify if you want to enable the explorer test interface: Yes
+- Specify a key if you want to enable dynamic logging: 
+- Specify if you want to enable event publication over WebSockets: No
+- Specify if you want to enable TLS security for the REST API: No
+
