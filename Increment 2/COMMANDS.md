@@ -23,3 +23,7 @@ composer-rest-server -c admin@log-network -n never -u true -d y -w true
 composer card delete --card PeerAdmin@log-network
 
 composer card delete --card admin@log-network
+
+# Start Composer Playground
+
+composer-playground
