@@ -1,0 +1,17 @@
+namespace org1.andrew.lognetwork
+
+asset Log identified by logId {
+  o String logId
+  o String data
+}
+
+transaction AddNewLog {
+  o String logId
+  o String data
+}
+
+@commit(false)
+@returns(Log[])
+transaction deviceLogHistory {
+  o String logId
+}
