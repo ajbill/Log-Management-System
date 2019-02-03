@@ -1,5 +1,18 @@
 namespace org1.andrew.lognetwork
 
+asset LoggingDevice identified by deviceId {
+  o String deviceId
+  o String log
+  o String timeAddedToBlock
+}
+
+transaction AddNewLog {
+  o String deviceId
+  o String newLog
+}
+
+namespace org1.andrew.lognetwork
+
 asset Log identified by logId {
   o String logId
   o String data
