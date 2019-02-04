@@ -1,0 +1,80 @@
+version: '2'
+
+services:
+
+  orderer.log-network:
+    container_name: orderer.log-network
+    image: hyperledger/fabric-orderer:latest
+    environment:
+      #- ORDERER_GENERAL_LOGLEVEL=INFO
+      - ORDERER_GENERAL_LOGLEVEL=DEBUG
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+    - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../crypto-config/ordererOrganizations/log-network/orderers/orderer.log-network/msp:/var/hyperledger/orderer/msp
+    - orderer.log-network:/var/hyperledger/production/orderer
+    ports:
+      - 7050:7050
+
+  peer0.org1.log-network:
+    container_name: peer0.org1.log-network
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.org1.log-network
+      - CORE_PEER_ADDRESS=peer0.org1.log-network:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.log-network:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.log-network:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org1.log-network/peers/peer0.org1.log-network/msp:/etc/hyperledger/fabric/msp
+        - peer0.org1.log-network:/var/hyperledger/production
+    ports:
+      - 7051:7051
+      - 7053:7053
+
+  peer1.org1.log-network:
+    container_name: peer1.org1.log-network
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.org1.log-network
+      - CORE_PEER_ADDRESS=peer1.org1.log-network:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.log-network:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.log-network:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org1.log-network/peers/peer1.org1.log-network/msp:/etc/hyperledger/fabric/msp
+        - peer1.org1.log-network:/var/hyperledger/production
+    ports:
+      - 8051:7051
+      - 8053:7053
+
+  peer2.org1.log-network:
+    container_name: peer2.org1.log-network
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer2.org1.log-network
+      - CORE_PEER_ADDRESS=peer2.org1.log-network:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.org1.log-network:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.log-network:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org1.log-network/peers/peer2.org1.log-network/msp:/etc/hyperledger/fabric/msp
+        - peer2.org1.log-network:/var/hyperledger/production
+    ports:
+      - 9051:7051
+      - 9053:7053
