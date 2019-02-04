@@ -1,0 +1,56 @@
+version: '2'
+
+volumes:
+  orderer.log-network:
+  peer0.org1.log-network:
+  peer1.org1.log-network:
+  peer2.org1.log-network:
+
+networks:
+  byfn:
+services:
+  ca0:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-org1
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.log-network-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/5ccdeb0717ff5bc77741c396361999e9a336310168ffeeb32007cb05984b07b1_sk -b admin:adminpw -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/org1.log-network/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca_peerOrg1
+    networks:
+      - byfn
+
+  orderer.log-network:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer.log-network
+    container_name: orderer.log-network
+    networks:
+      - byfn
+
+  peer0.org1.log-network:
+    container_name: peer0.org1.log-network
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org1.log-network
+    networks:
+      - byfn
+
+  peer1.org1.log-network:
+    container_name: peer1.org1.log-network
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.org1.log-network
+    networks:
+      - byfn
+
+  peer2.org1.log-network:
+    container_name: peer2.org1.log-network
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer2.org1.log-network
+    networks:
+      - byfn
