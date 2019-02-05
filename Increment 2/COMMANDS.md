@@ -12,6 +12,8 @@ docker kill $(docker ps -q)
 
 docker rm $(docker ps -aq)
 
+docker rmi $(docker images dev-* -q)
+
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-cli.yaml down --volumes --remove-orphan
 
 # Restart existing REST server
