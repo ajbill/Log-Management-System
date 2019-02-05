@@ -1,41 +1,44 @@
 /**
- * @param {org1.andrew.lognetwork.AddNewLog} addNewLog
+ * @param {org1.andrew.lognetwork.AddNewLog} tx
  * @transaction
  */
 
-async function AddNewLog(addNewLog) {
+async function AddNewLog(tx) {
+ 
+  var newDeviceLog;
   
-  	var factory = getFactory();
-  	var newlog;
-
-  	return getAssetRegistry("org1.andrew.lognetwork.Log")
-  	.then(function(postLogRegistry) {
-      
-    newLog = factory.newResource("org1.andrew.lognetwork", "Log", addNewLog.logId);
-    newLog.data = addNewLog.data;
-    
-    return postLogRegistry.add(newLog);
-})
+  getAssetRegistry("org1.andrew.lognetwork.LoggingDevice")
+  .then(function(deviceAssetRegistry) {
+  return deviceAssetRegistry.get(tx.deviceId); 
+  })
+  .then(function(updateDeviceDetails) {
+  	newDeviceLog = updateDeviceDetails;
+    newDeviceLog.log = tx.newLog;
+    return getAssetRegistry("org1.andrew.lognetwork.LoggingDevice")
+  })
+  .then(function(updateAssetRegistry) {
+    return updateAssetRegistry.update(newDeviceLog);
+  })
 }
 
 /**
- * Sample read-only transaction
- * @param {org1.andrew.lognetwork.deviceLogHistory} tx
- * @returns {org1.andrew.lognetwork.Log[]} All trxns  
+ * Read-only transaction
+ * @param {org1.andrew.lognetwork.DeviceLogHistory} tx
+ * @returns {org1.andrew.lognetwork.LoggingDevice[]} All trxns  
  * @transaction
  */
 
 
-async function deviceLogHistory(tx) {
+async function DeviceLogHistory(tx) {
 
-    const logId = tx.logId;
+    const deviceId = tx.deviceId;
     const nativeSupport = tx.nativeSupport;
-    // const partRegistry = await getParticipantRegistry('org.example.trading.Trader')
-
-    const nativeKey = getNativeAPI().createCompositeKey('Asset:org1.andrew.lognetwork.Log', [logId]);
+    const nativeKey = getNativeAPI().createCompositeKey('Asset:org1.andrew.lognetwork.LoggingDevice', [deviceId]);
     const iterator = await getNativeAPI().getHistoryForKey(nativeKey);
+  
     let results = [];
     let res = {done : false};
+  
     while (!res.done) {
         res = await iterator.next();
 
@@ -59,6 +62,5 @@ async function deviceLogHistory(tx) {
             newArray.push(getSerializer().fromJSON(item));
     }
     console.log("@debug the results to be returned are as follows: ");
-
-    return newArray; // returns something to my NodeJS client (called via REST API)
+    return newArray; 
 }
