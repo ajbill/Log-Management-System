@@ -1,0 +1,28 @@
+version: '2'
+
+volumes:
+  peer1.org1.log-network:
+
+networks:
+  byfn:
+
+services:
+
+  peer2.org1.log-network:
+    container_name: peer1.org1.log-network
+    extends:
+      file:  base3/docker-compose-base.yaml
+      service: peer2.org1.log-network
+    networks:
+      - byfn
+
+  couchdb1:
+    container_name: couchdb1
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 6984:5984
+    networks:
+      - byfn
