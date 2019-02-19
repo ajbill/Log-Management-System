@@ -1,3 +1,8 @@
+# Install prereqs on each machine
+
+
+
+
 cd Log-Management-System-Iteration-2/Increment 2
 
 docker kill $(docker ps -q)
