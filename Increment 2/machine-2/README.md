@@ -1,5 +1,14 @@
-# Machine 2
+# Clearany existing containers
 
+docker kill $(docker ps -q)
+
+docker rm $(docker ps -aq)
+
+docker rmi $(docker images dev-* -q)
+
+COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine2.yaml down --volumes --remove-orphan
+
+# Machine 2
 
 sudo ifconfig ens33 192.168.211.22
 
