@@ -33,7 +33,7 @@ sudo ifconfig ens33 192.168.211.11 default gateway?
 Remove any existing containers and volumes
 
 ```
-cd fabric-samples/Log-Management-System-Iteration-2
+cd fabric-samples/Log-Management-System-Iteration-2/machine-1
 
 docker kill $(docker ps -q)
 
@@ -45,8 +45,6 @@ COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine1.yaml down --
 ```
 
 Load containers, set channel and attach peer
-
-set internal ethernet port
 
 ```
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine1.yaml up -d
