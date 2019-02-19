@@ -22,7 +22,7 @@ docker rmi $(docker images dev-* -q)
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine2.yaml down --volumes --remove-orphan
 ```
 
-Load containers and attach peer to the channel
+Load container and attach peer to the channel
 
 ```
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine2.yaml up -d
