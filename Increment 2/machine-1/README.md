@@ -2,6 +2,26 @@
 
 ## Part 1
 
+Install Ubuntu 16.04.5-desktop-amd64 on a new virtual machine with the following hardware settings:
+
+- Ram
+- Disk
+- Adapters etc
+
+Configure the router 
+
+```
+sudo ifconfig
+
+cd ~/??????????
+
+chmod +x script.sh
+
+./script.sh
+```
+
+## Part 2
+
 Set internal ethernet port
 
 ```
