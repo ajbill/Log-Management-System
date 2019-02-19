@@ -4,7 +4,7 @@ Install prereqs on each machine
 
 Go to https://github.com/ajbill/Log-Management-System/tree/Iteration-2/Increment%202/machine-1
 
-[Go to ](/Machine-1/)
+[Go to ](Machine-1/)
 
 
 
