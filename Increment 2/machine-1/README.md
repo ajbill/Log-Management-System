@@ -11,7 +11,7 @@ Install Ubuntu 16.04.5-desktop-amd64 on a new virtual machine with the following
 Configure the router 
 
 ```
-sudo ifconfig
+sudo ifconfig 192.168.211.10
 
 cd ~/??????????
 
@@ -27,12 +27,14 @@ sudo iptables -A FORWARD -i ens34 -o ens33 -j ACCEPT
 Set internal ethernet port
 
 ```
-sudo ifconfig ens33 192.168.211.11
+sudo ifconfig ens33 192.168.211.11 default gateway?
 ```
 
 Remove any existing containers and volumes
 
 ```
+cd fabric-samples/Log-Management-System-Iteration-2
+
 docker kill $(docker ps -q)
 
 docker rm $(docker ps -aq)
@@ -51,3 +53,5 @@ COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine1.yaml up -d
 
 docker exec cli scripts/script.sh oslogchannel 3 golang 10 false
 ```
+
+
