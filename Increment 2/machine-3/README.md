@@ -1,4 +1,4 @@
-# Machine 2
+# Machine 3
 
 Set ethernet port
 
