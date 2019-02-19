@@ -1,6 +1,6 @@
 # Machine 2
 
-Set internal ethernet port
+Set ethernet port
 
 ```
 sudo ifconfig ens33 192.168.211.22
