@@ -24,6 +24,8 @@ sudo iptables -A FORWARD -i ens34 -o ens33 -j ACCEPT
 
 ## Part 2
 
+On the other virtual machine:
+
 Set internal ethernet port
 
 ```
