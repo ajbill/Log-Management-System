@@ -51,5 +51,5 @@ COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine1.yaml up -d
 
 docker exec cli scripts/script.sh oslogchannel 3 golang 10 false
 ```
-
+Return to [Increment 2 Iteration 2](../README.md) folder.
 
