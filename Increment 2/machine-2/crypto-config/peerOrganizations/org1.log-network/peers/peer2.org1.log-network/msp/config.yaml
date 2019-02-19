@@ -1,8 +1,0 @@
-NodeOUs:
-  Enable: true
-  ClientOUIdentifier:
-    Certificate: cacerts/ca.org1.log-network-cert.pem
-    OrganizationalUnitIdentifier: client
-  PeerOUIdentifier:
-    Certificate: cacerts/ca.org1.log-network-cert.pem
-    OrganizationalUnitIdentifier: peer
