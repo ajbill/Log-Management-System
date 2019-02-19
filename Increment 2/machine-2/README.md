@@ -1,4 +1,4 @@
-# Clearany existing containers
+# Clear any existing containers
 
 docker kill $(docker ps -q)
 
