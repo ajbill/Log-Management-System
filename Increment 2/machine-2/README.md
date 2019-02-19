@@ -12,6 +12,8 @@ COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine2.yaml down --
 
 sudo ifconfig ens33 192.168.211.22
 
+cd / ?????????????????????
+
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine2.yaml up -d
 
 # Join Channel
