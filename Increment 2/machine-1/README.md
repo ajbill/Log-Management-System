@@ -11,7 +11,7 @@ Install Ubuntu 16.04.5-desktop-amd64 on a new virtual machine with the following
 Configure the router 
 
 ```
-sudo ifconfig 192.168.211.10
+sudo ifconfig ens33 192.168.211.10
 
 cd ~/??????????
 
