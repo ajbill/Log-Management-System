@@ -1,4 +1,17 @@
-# Clear any existing containers
+# Machine 2
+
+Set internal ethernet port
+
+```
+sudo ifconfig ens33 192.168.211.22
+
+ip route add 192.168.211.10/24 dev ens33
+```
+
+Remove any existing containers and volumes
+
+```
+cd fabric-samples/Log-Management-System-Iteration-2/machine-2
 
 docker kill $(docker ps -q)
 
@@ -7,17 +20,14 @@ docker rm $(docker ps -aq)
 docker rmi $(docker images dev-* -q)
 
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine2.yaml down --volumes --remove-orphan
+```
 
-# Machine 2
+Load containers and attach peer to the channel
 
-sudo ifconfig ens33 192.168.211.22
-
-cd / ?????????????????????
-
+```
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-machine2.yaml up -d
-
-# Join Channel
 
 docker exec -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.log-network/msp" peer1.org1.log-network peer channel fetch config -o orderer.log-network:7050 -c oslogchannel
 
 docker exec -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.log-network/msp" peer1.org1.log-network peer channel join -b oslogchannel_config.block
+```
