@@ -31,3 +31,4 @@ docker exec -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.lo
 
 docker exec -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.log-network/msp" peer1.org1.log-network peer channel join -b oslogchannel_config.block
 ```
+Return to [Increment 2 Iteration 2](../README.md) folder.
