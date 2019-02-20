@@ -55,3 +55,29 @@ docker exec cli scripts/script.sh oslogchannel 3 golang 10 false
 ```
 Return to [Increment 2 Iteration 2](../README.md) folder.
 
+## Part 3
+
+delete any existing cards
+
+```
+composer card delete --card PeerAdmin@log-network
+
+composer card delete --card admin@log-network
+```
+
+Create the Composer connection and install chaincode
+
+```
+cd log-network
+
+composer card create -p connection.json -u PeerAdmin -c Admin@org1.log-network-cert.pem -k *_sk -r PeerAdmin -r ChannelAdmin -f PeerAdmin@log-network.card
+
+composer card import -f PeerAdmin@log-network.card --card PeerAdmin@log-network
+
+composer network install --card PeerAdmin@log-network --archiveFile log-network@0.0.1.bna
+
+composer network start --networkName log-network --networkVersion 0.0.1 -A admin -S adminpw -c PeerAdmin@log-network
+
+composer card import -f admin@log-network.card
+```
+
