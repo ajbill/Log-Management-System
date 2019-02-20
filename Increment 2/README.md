@@ -1,6 +1,8 @@
 # Increment 2 - Iteration 2
 
-Install prereqs on each machine
+Install Ubuntu 16.04.5-desktop-amd64 on three other physical machines. So there is now 4 physical machines with 1 virtual machine on each.
+
+Install prereqs on each virtual machine.
 
 Go to the [Machine 1](machine-1/README.md) folder and complete Part 1 & 2.
 
