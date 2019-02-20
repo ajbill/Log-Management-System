@@ -23,6 +23,6 @@ services:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
-      - 6984:5984
+      - 7984:5984
     networks:
       - byfn
