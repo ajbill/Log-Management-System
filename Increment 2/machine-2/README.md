@@ -11,7 +11,7 @@ ip route add 192.168.211.10/24 dev ens33
 Remove any existing containers and volumes
 
 ```
-cd fabric-samples/Log-Management-System-Iteration-2/machine-2
+cd ~/Log-Management-System-Iteration-2/Increment\ 2/machine-2
 
 docker kill $(docker ps -q)
 
