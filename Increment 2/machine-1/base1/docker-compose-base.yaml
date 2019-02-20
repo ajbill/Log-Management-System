@@ -55,6 +55,3 @@ services:
     ports:
       - 7051:7051
       - 7053:7053
-    depends_on:
-      - orderer.log-network
-      - couchdb0
