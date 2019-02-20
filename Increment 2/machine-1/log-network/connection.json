@@ -8,6 +8,12 @@
         },
         "peer1.org1.log-network": {
             "url": "grpc://192.168.211.22:8051"
+        },
+        "peer2.org1.log-network": {
+            "url": "grpc://192.168.211.33:9051"
+        },
+        "peer3.org1.log-network": {
+            "url": "grpc://192.168.211.44:10051"
         }
     },
     "certificateAuthorities": {
@@ -26,7 +32,9 @@
             "mspid": "Org1MSP",
             "peers": [
                 "peer0.org1.log-network",
-                "peer1.org1.log-network"
+                "peer1.org1.log-network",
+                "peer2.org1.log-network",
+                "peer3.org1.log-network"
             ],
             "certificateAuthorities": [
                 "ca.org1.log-network"
@@ -48,6 +56,16 @@
                     "endorsingPeer": true,
                     "chaincodeQuery": true,
                     "eventSource": true
+                },
+                "peer2.org1.log-network": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer3.org1.log-network": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
                 }
             }
         }
@@ -66,3 +84,4 @@
         }
     }   
 }
+
