@@ -13,6 +13,8 @@ services:
     extends:
       file:  base4/docker-compose-base.yaml
       service: peer3.org1.log-network
+    depends_on:
+      - couchdb3
     networks:
       - byfn
 
