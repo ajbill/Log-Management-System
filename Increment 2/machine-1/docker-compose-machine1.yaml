@@ -38,6 +38,9 @@ services:
     extends:
       file:  base1/docker-compose-base.yaml
       service: peer0.org1.log-network
+    depends_on:
+      - orderer.log-network
+      - couchdb0
     networks:
       - byfn
 
