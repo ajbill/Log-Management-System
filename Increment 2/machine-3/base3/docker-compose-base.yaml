@@ -30,6 +30,3 @@ services:
     ports:
       - 9051:7051
       - 9053:7053
-    depends_on:
-      - orderer.log-network
-      - couchdb2
