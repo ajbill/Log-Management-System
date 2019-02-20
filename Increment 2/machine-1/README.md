@@ -57,7 +57,7 @@ Return to [Increment 2 Iteration 2](../README.md) folder.
 
 ## Part 3
 
-delete any existing cards
+Delete any existing cards
 
 ```
 composer card delete --card PeerAdmin@log-network
@@ -65,7 +65,7 @@ composer card delete --card PeerAdmin@log-network
 composer card delete --card admin@log-network
 ```
 
-Create the Composer connection and install chaincode
+Create the Composer connection and install the chaincodes
 
 ```
 cd log-network
