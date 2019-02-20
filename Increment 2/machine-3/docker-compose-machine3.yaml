@@ -16,8 +16,8 @@ services:
     networks:
       - byfn
 
-  couchdb1:
-    container_name: couchdb1
+  couchdb2:
+    container_name: couchdb2
     image: hyperledger/fabric-couchdb
     environment:
       - COUCHDB_USER=
