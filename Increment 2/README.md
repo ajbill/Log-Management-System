@@ -1,6 +1,13 @@
 # Increment 2 - Iteration 2
 
-Install Ubuntu 16.04.5-desktop-amd64 on three other physical machines. So there is now 4 physical machines with 1 virtual machine on each.
+Install Ubuntu 16.04.5-desktop-amd64 on three other physical machines. 
+
+- Number of processors: 2
+- Number of cores per processor: 4
+- Memory 64 GB
+- Disk capacity 30 GB
+
+So there is now 4 physical machines with 1 virtual machine on each.
 
 Install prereqs on each virtual machine.
 
