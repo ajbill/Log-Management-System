@@ -1,7 +1,7 @@
 version: '2'
 
 volumes:
-  peer1.org1.log-network:
+  peer2.org1.log-network:
 
 networks:
   byfn:
@@ -9,7 +9,7 @@ networks:
 services:
 
   peer2.org1.log-network:
-    container_name: peer1.org1.log-network
+    container_name: peer2.org1.log-network
     extends:
       file:  base3/docker-compose-base.yaml
       service: peer2.org1.log-network
