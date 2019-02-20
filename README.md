@@ -1,6 +1,6 @@
 # Branch: Iteration-1
 
-[## Increment 1] (Log-Management-System/Iteration-1/Increment 1/README.md 
+[## Increment 1] (Log-Management-System/Iteration-1/Increment 1/README.md)
 
 A shell script that installs all the software packages and edits configuration files necessay for the log generation subsystem to start. The log generator simply connects to the OS log system.
 
