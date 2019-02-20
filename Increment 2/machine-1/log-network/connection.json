@@ -1,0 +1,68 @@
+{
+    "name": "log-network",
+    "x-type": "hlfv1",
+    "version": "1.0.0",
+    "peers": {
+        "peer0.org1.log-network": {
+            "url": "grpc://127.0.0.1:7051"
+        },
+        "peer1.org1.log-network": {
+            "url": "grpc://192.168.211.22:8051"
+        }
+    },
+    "certificateAuthorities": {
+        "ca.org1.log-network": {
+            "url": "http://127.0.0.1:7054",
+            "caName": "ca-org1"
+        }
+    },
+    "orderers": {
+        "orderer.log-network": {
+            "url": "grpc://127.0.0.1:7050"
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "peer0.org1.log-network",
+                "peer1.org1.log-network"
+            ],
+            "certificateAuthorities": [
+                "ca.org1.log-network"
+            ]
+        }
+    },
+    "channels": {
+        "oslogchannel": {
+            "orderers": [
+                "orderer.log-network"
+            ],
+            "peers": {
+                "peer0.org1.log-network": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer1.org1.log-network": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                }
+            }
+        }
+    },
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "1200",
+                    "eventHub": "1200",
+                    "eventReg": "1200"
+                },
+                "orderer": "1200"
+            }
+        }
+    }   
+}
