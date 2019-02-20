@@ -1,5 +1,8 @@
-# Install the prerequisites
+# Increment 2 Iteration 1
 
+Install the prerequisites
+
+```
 sudo apt install curl -y
 
 sudo snap install node --classic --channel=8
@@ -44,9 +47,11 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo apt-get -y install unzip
 
 # Log out and back in again
+```
 
-# Install Composer and development tools
+Install Composer and development tools
 
+```
 npm install -g composer-cli@0.20.6
 
 npm install -g composer-rest-server@0.20.6
@@ -56,9 +61,11 @@ npm install -g generator-hyperledger-composer@0.20.6
 npm install -g yo
 
 npm install -g composer-playground@0.20.6
+```
 
-# Install Hyperledger Fabric
+Install Hyperledger Fabric
 
+```
 curl -sSL http://bit.ly/2ysbOFE | bash -s 1.2.1 1.2.1 0.4.10
 
 cd fabric-samples
@@ -69,8 +76,11 @@ unzip Log-Management-System-Iteration-1
 
 cd LMS-Increment-2-Iteration-1
 
-# Start the network
+```
 
+Start the network
+
+```
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-cli.yaml -f docker-compose-couch.yaml -f docker-compose-cas.yaml up -d
 
 chmod +x scripts/script.sh
@@ -78,9 +88,11 @@ chmod +x scripts/script.sh
 chmod +x scripts/utils.sh
 
 docker exec cli scripts/script.sh oslogchannel 3 golang 10 false
+```
 
 # Create a business card and connect Composer to the network
 
+```
 cd log-network
 
 composer card create -p connection.json -u PeerAdmin -c Admin@org1.log-network-cert.pem -k *_sk -r PeerAdmin -r ChannelAdmin -f PeerAdmin@log-network.card
@@ -94,14 +106,19 @@ composer network install --card PeerAdmin@log-network --archiveFile log-network@
 composer network start --networkName log-network --networkVersion 0.0.1 -A admin -S adminpw -c PeerAdmin@log-network
 
 composer card import -f admin@log-network.card
+```
 
-# Test the network connection
+Test the network connection
 
+```
 composer network ping -c admin@log-network
+```
 
-# Generate a REST server
+Generate a REST server
 
+```
 composer-rest-server
+```
 
 - Enter the name of the business network card to use: admin@log-network
 - Specify if you want namespaces in the generated REST API: Never
