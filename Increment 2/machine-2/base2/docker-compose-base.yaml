@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+
+  peer1.org1.log-network:
+    container_name: peer1.org1.log-network
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.org1.log-network
+      - CORE_PEER_ADDRESS=peer1.org1.log-network:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.log-network:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.log-network:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org1.log-network/peers/peer1.org1.log-network/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org1.log-network/users:/etc/hyperledger/msp/users
+      - peer1.org1.log-network:/var/hyperledger/production
+    extra_hosts:
+      - "orderer.log-network:192.168.211.11"
+      - "peer0.org1.log-network:192.168.211.11"
+      - "ca.log-network:192.168.211.11"
+    ports:
+      - 8051:7051
+      - 8053:7053
