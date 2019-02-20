@@ -22,8 +22,10 @@ services:
       - peer1.org1.log-network:/var/hyperledger/production
     extra_hosts:
       - "orderer.log-network:192.168.211.11"
-      - "peer0.org1.log-network:192.168.211.11"
       - "ca.log-network:192.168.211.11"
+      - "peer0.org1.log-network:192.168.211.11"
+      - "peer0.org1.log-network:192.168.211.33"
+      - "peer0.org1.log-network:192.168.211.44"
     ports:
       - 8051:7051
       - 8053:7053
