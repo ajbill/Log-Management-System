@@ -9,7 +9,7 @@ networks:
 services:
 
   peer3.org1.log-network:
-    container_name: peer1.org1.log-network
+    container_name: peer3.org1.log-network
     extends:
       file:  base4/docker-compose-base.yaml
       service: peer3.org1.log-network
