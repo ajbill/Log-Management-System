@@ -9,9 +9,3 @@ transaction AddNewLog {
   o String deviceId
   o String newLog
 }
-
-@commit(false)
-@returns(LoggingDevice[])
-transaction DeviceLogHistory {
-  o String deviceId
-}
