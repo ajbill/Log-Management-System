@@ -1,6 +1,6 @@
 # Increment 1 - Iteration 1
 
-Download and execute script.sh
+Download and execute loggingDevice.sh
 
 `````
 chmod +x loggingDevice.sh
