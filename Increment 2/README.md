@@ -101,8 +101,6 @@ composer card import -f PeerAdmin@log-network.card --card PeerAdmin@log-network
 
 composer network install --card PeerAdmin@log-network --archiveFile log-network@0.0.1.bna
 
-// composer network install --card PeerAdmin@log-network --archiveFile log-network@0.0.1.bna -o npmrcFile=/home/andrew/.npm/npmConfig.txt
-
 composer network start --networkName log-network --networkVersion 0.0.1 -A admin -S adminpw -c PeerAdmin@log-network
 
 composer card import -f admin@log-network.card
