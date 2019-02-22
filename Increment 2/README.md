@@ -74,7 +74,7 @@ cd fabric-samples
 
 unzip Log-Management-System-Iteration-1
 
-cd LMS-Increment-2-Iteration-1
+cd LMS-Increment-2-Iteration-1/Increment\ 2
 
 ```
 
