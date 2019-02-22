@@ -63,7 +63,7 @@ npm install -g yo
 npm install -g composer-playground@0.20.6
 ```
 
-Install Hyperledger Fabric
+Install Hyperledger Fabric & get my config files
 
 ```
 curl -sSL http://bit.ly/2ysbOFE | bash -s 1.2.1 1.2.1 0.4.10
