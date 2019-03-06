@@ -61,24 +61,13 @@ npm install -g yo
 npm install -g composer-playground@0.20.6
 ```
 
-Install Hyperledger Fabric & get my config files
+Get my config files & Start the network
 
 ```
-# CHECK IF FABRIC NEEDS DOWNLOADING
-# curl -sSL http://bit.ly/2ysbOFE | bash -s 1.2.1 1.2.1 0.4.10
-# cd fabric-samples
-
 # Download this repository
-
-unzip Log-Management-System-Iteration-1
 
 cd Log-Management-System-Iteration-1/Increment\ 2
 
-```
-
-Start the network
-
-```
 COMPOSE_PROJECT_NAME=byfn docker-compose -f docker-compose-cli.yaml -f docker-compose-couch.yaml -f docker-compose-cas.yaml up -d
 
 chmod +x scripts/script.sh
