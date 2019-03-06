@@ -36,6 +36,8 @@ destination d_kafka {
 log { source(s_apache2); destination(d_kafka); };
 EOF
 
+cd /opt/kafka_2.12-2.0.1/
+
 # Start Zookeeper
 x-terminal-emulator -e /opt/kafka_2.12-2.0.1/bin/zookeeper-server-start.sh config/zookeeper.properties
 
