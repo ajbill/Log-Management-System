@@ -72,7 +72,7 @@ Install Hyperledger Fabric & get my config files
 
 unzip Log-Management-System-Iteration-1
 
-cd LMS-Increment-2-Iteration-1/Increment\ 2
+cd Log-Management-System-Iteration-1/Increment\ 2
 
 ```
 
