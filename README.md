@@ -22,8 +22,6 @@ The script installs Apache webserver and alters the configuration to record the 
 
 A 4 node network on 4 seperate physical machines, a virtual router and a Kafka orderer.
 
-## Increment 3
-
 --------------------------------------------------------------------
 
 # Validation add:
