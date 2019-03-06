@@ -2,7 +2,7 @@
 
 cd Log-Management-System-Iteration-2
 
-cd Increment-1
+cd Increment\ 1
 
 chmod +x loggingDevice2.sh
 
