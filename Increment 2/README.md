@@ -44,8 +44,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.13.0/docker-
     
 sudo chmod +x /usr/local/bin/docker-compose
 
-sudo apt-get -y install unzip
-
 # Log out and back in again
 ```
 
