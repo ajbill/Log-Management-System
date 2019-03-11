@@ -30,6 +30,8 @@ services:
     - orderer.log-network:/var/hyperledger/production/orderer
     extra_hosts:
     - "peer1.org1.log-network:192.168.211.22"
+    - "peer2.org1.log-network:192.168.211.33"
+    - "peer3.org1.log-network:192.168.211.44"
     ports:
       - 7050:7050
 
@@ -52,6 +54,8 @@ services:
         - peer0.org1.log-network:/var/hyperledger/production
     extra_hosts:
       - "peer1.org1.log-network:192.168.211.22"
+      - "peer2.org1.log-network:192.168.211.33"
+      - "peer3.org1.log-network:192.168.211.44"
     ports:
       - 7051:7051
       - 7053:7053
