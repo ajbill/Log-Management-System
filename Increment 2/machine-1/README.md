@@ -85,7 +85,7 @@ composer card delete --card admin@log-network
 Create the Composer connection and install the chaincodes
 
 ```
-cd log-network
+cd ~/Log-Management-System-Iteration-2/Increment\ 2/machine-1/log-network
 
 composer card create -p connection.json -u PeerAdmin -c Admin@org1.log-network-cert.pem -k *_sk -r PeerAdmin -r ChannelAdmin -f PeerAdmin@log-network.card
 
