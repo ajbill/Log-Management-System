@@ -4,7 +4,7 @@ asset LoggingDevice identified by deviceId {
   o String deviceId
   o String log
   o String logCount
-  o String timeEntered
+  o DateTime timeEntered
 }
 
 transaction AddNewLog {
