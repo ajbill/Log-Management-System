@@ -1,35 +1,14 @@
-# Branch: Iteration-1
+# Branch: Validation
 
-## Increment 1
+For the Validation phase we have an Apache Webserver configured on Node 1 that can generate a required number of logs.
 
-A shell script that installs all the software packages and edits configuration files necessay for the log generation subsystem to start. The log generator simply connects to the OS log system.
+To be able to analyse data to sent to the blockchain we shall make some alterations to the chaincode and data structure.
 
-## Increment 2
+Please see the updates to:
 
-A 3 node network that runs on one machine with a Solo orderer.
+org1.andrew.lognetwork.cto
 
-## Increment 3
+logic.js
 
-----------------------------------------------------------
+Make sure to replace the BNA directory in /log/????????? Withe the one here so that the correct files are loaded when staring Composer.
 
-# Branch: Iteration-2:
-
-## Increment 1
-
-The script installs Apache webserver and alters the configuration to record the access log.
-
-## Increment 2 
-
-A 4 node network on 4 seperate physical machines, a virtual router and a Kafka orderer.
-
---------------------------------------------------------------------
-
-# Validation add:
-
-model file 
-
-o String timeAddedToBlock
-
-logic.js 
-
-newDeviceLog.timeAddedToBlock = new Date().toISOString();
