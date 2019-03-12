@@ -18,6 +18,8 @@ edit /etc/sysctl.conf and uncomment:
 
 # net.ipv4.ip forward=1
 
+# restart router
+
 sudo ifconfig ens33 192.168.211.10
 
 cd ~/??????????
