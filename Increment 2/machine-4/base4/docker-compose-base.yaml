@@ -21,7 +21,7 @@ services:
         - /var/run/:/host/var/run/
         - ../crypto-config/peerOrganizations/org1.log-network/peers/peer0.org1.log-network/msp:/etc/hyperledger/fabric/msp
         - ../crypto-config/peerOrganizations/org1.log-network/users:/etc/hyperledger/msp/users
-        - peer0.org1.log-network:/var/hyperledger/production
+        - peer3.org1.log-network:/var/hyperledger/production
     extra_hosts:
       - "orderer.log-network:192.168.211.11"
       - "ca.log-network:192.168.211.11"
