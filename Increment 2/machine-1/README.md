@@ -26,11 +26,11 @@ sudo iptables -A FORWARD -i ens34 -o ens33 -j ACCEPT
 
 
 
-sudo iptables -t nat -A POSTROUTING -o ens38 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 
-sudo iptables -A FORWARD -i ens38 -o ens33 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i ens33 -o ens38 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-sudo iptables -A FORWARD -i ens33 -o ens38 -j ACCEPT
+sudo iptables -A FORWARD -i ens38 -o ens33 -j ACCEPT
 ```
 
 ## Part 2
