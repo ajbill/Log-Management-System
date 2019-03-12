@@ -52,7 +52,7 @@ sudo ifconfig ens33 192.168.211.11 default gateway?
 Remove any existing containers and volumes
 
 ```
-cd fabric-samples/Log-Management-System-Iteration-2/machine-1
+cd ~/Log-Management-System-Iteration-2/Increment\ 2/machine-1
 
 docker kill $(docker ps -q)
 
