@@ -15,7 +15,7 @@ async function AddNewLog(tx) {
       newDeviceLog = updateDeviceDetails;
       newDeviceLog.log = tx.newLog;
       newDeviceLog.logCount = tx.logCount;
-      newDeviceLog.timeEntered = new Date().toISOString();
+      newDeviceLog.timeEntered = tx.timestamp;
       return getAssetRegistry("org1.andrew.lognetwork.LoggingDevice")
     })
     .then(function(updateAssetRegistry) {
