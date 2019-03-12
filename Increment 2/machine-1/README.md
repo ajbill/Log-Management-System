@@ -4,8 +4,11 @@
 
 Install Ubuntu 16.04.5-desktop-amd64 on a new virtual machine with the following hardware settings:
 
-- Ram
-- Disk
+- Number of processors: 1
+- Number of cores per processor: 1
+- Memory 256 MB
+- Disk: 20 GB
+
 - Adapters etc
 
 Configure the router 
