@@ -1,0 +1,20 @@
+namespace org1.andrew.lognetwork
+
+asset LoggingDevice identified by deviceId {
+  o String deviceId
+  o String log
+  o String logCount
+  o String timeEntered
+}
+
+transaction AddNewLog {
+  o String deviceId
+  o String newLog
+  o String logCount
+}
+
+@commit(false)
+@returns(LoggingDevice[])
+transaction DeviceLogHistory {
+  o String deviceId
+}
