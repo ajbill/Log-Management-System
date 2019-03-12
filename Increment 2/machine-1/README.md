@@ -14,6 +14,10 @@ Install Ubuntu 16.04.5-desktop-amd64 on a new virtual machine with the following
 Configure the router 
 
 ```
+edit /etc/sysctl.conf and uncomment:
+
+# net.ipv4.ip forward=1
+
 sudo ifconfig ens33 192.168.211.10
 
 cd ~/??????????
