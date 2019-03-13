@@ -18,3 +18,13 @@ UPDATE BNA FILE
 
 
 - FABRIC_LOGGING_SPEC=INFO
+
+
+Consumer app
+
+https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
+
+
+ab -n 5 -c 1 -k -H "Accept-Encoding: gzip, deflate" http://127.0.0.1/80
+
+ab -t 1 -n 50 -c 1 -k http://127.0.0.1/80
