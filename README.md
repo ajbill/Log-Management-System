@@ -4,6 +4,8 @@ For the Validation phase we have an Apache Webserver configured on Node 1 that c
 
 To be able to analyse data to sent to the blockchain we shall make some alterations to the chaincode and data structure.
 
+SET LOGGING TO INFO
+
 Please see the updates to:
 
 org1.andrew.lognetwork.cto
