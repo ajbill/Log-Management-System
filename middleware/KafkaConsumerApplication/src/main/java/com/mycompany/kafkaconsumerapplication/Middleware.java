@@ -1,5 +1,6 @@
 package com.mycompany.kafkaconsumerapplication;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Properties;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -9,7 +10,7 @@ import org.json.simple.JSONObject;
 
 public class Middleware {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
@@ -19,46 +20,30 @@ public class Middleware {
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("auto.offset.reset", "latest");
-     
+ 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Arrays.asList("blockchainLogs"));
-        
-        
+
         int logId = 1;
-        String logIdString = new String();
-        String url = new String("http://localhost:3000/api/AddNewLog");
-        String response = new String();
+        String logCountString = new String();
         Log send;
-        
-        while (true) {
+
+            while (true) {
            
                 ConsumerRecords<String, String> records = consumer.poll(1);
                 
                 for (ConsumerRecord<String, String> record : records) {
 
-                    logIdString = String.valueOf(logId);
+                    logCountString = String.valueOf(logId);
                     JSONObject jsonLog = new JSONObject();
-        
-                    jsonLog.put("$class", "org1.andrew.lognetwork.AddNewLog");
-                    jsonLog.put("deviceId", "PC1");
-                    jsonLog.put("newLog", record.value());
-                    jsonLog.put("logCount", logIdString);
-                    
+
                     send = new Log();
-                   
-                    
-                    response = send.sendNewLog(url, jsonLog);
-                    
+                    send.newLog("PC1", record.value(), logCountString);
+
                     logId ++;
-                    
-                    System.out.println(response);
-        
-       
-                }
-                
-        }
+
+                } 
+            }        
     }
-    
-    
     
 }
