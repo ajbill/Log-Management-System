@@ -102,3 +102,51 @@ public class Middleware {
     
     
 }
+
+
+
+
+TEST 2 Composer
+
+namespace org1.andrew.lognetwork
+
+asset Log identified by logId {
+  o String logId
+  o String logCount
+}
+
+transaction AddNewLog {
+  o String logId
+  o String logCount
+}
+
+
+
+/**
+ * @param {org1.andrew.lognetwork.AddNewLog} tx
+ * @transaction
+ */
+
+async function AddNewLog(tx) {
+ 
+    var factory = getFactory();
+  	
+  
+    return getAssetRegistry("org1.andrew.lognetwork.Log")
+    	.then(function(postAssetRegistry) {
+      
+        var logId = tx.logId
+        var logCount = tx.logCount
+        
+        newPost = factory.newResource("org1.andrew.lognetwork", "Log", logId, logCount);
+        newPost.logId = tx.logId;
+        newPost.logCount = tx.logCount;
+      	
+      	return postAssetRegistry.add(newPost);  
+  
+    })
+    
+  }
+
+
+
