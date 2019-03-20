@@ -2,7 +2,7 @@
 
 For the Validation phase we have an Apache Webserver configured on Node 1 that can generate a required number of logs.
 
-To be able to analyse data sent to the blockchain some changes need to be made to the chaincode and data structure.
+To be able to analyse data sent to the blockchain some changes need to be made to the chaincode, data structure, and middleware Java application.
 
 update logic.js
 
