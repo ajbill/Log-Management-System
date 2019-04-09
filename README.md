@@ -24,12 +24,5 @@ A 4 node network on 4 seperate physical machines, a virtual router and a Kafka o
 
 --------------------------------------------------------------------
 
-# Validation add:
+# Branch: Validation
 
-model file 
-
-o String timeAddedToBlock
-
-logic.js 
-
-newDeviceLog.timeAddedToBlock = new Date().toISOString();
