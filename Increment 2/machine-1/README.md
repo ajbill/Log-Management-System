@@ -22,8 +22,6 @@ edit /etc/sysctl.conf and uncomment:
 
 sudo ifconfig ens33 192.168.211.10
 
-cd ~/??????????
-
 sudo iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 
 sudo iptables -A FORWARD -i ens33 -o ens34 -m state --state RELATED,ESTABLISHED -j ACCEPT
