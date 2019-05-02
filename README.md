@@ -11,3 +11,5 @@ update org1.andrew.lognetwork.cto
 Or simply replace the BNA file already generated.
 
 Change Fabric logging levels from DEBUG to INFO.
+
+An additional TPS test function is included in the middleware Java application.
