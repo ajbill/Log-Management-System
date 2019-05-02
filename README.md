@@ -30,6 +30,6 @@ A 4 node network on 4 seperate physical machines, a virtual router and a Kafka o
 
 ## Branch: Validation
 
-Data structure and transaction updates for the testing data.
+Middleware, Data structure and transaction updates for the testing data.
 
 1 TPS test function.
